@@ -5,11 +5,6 @@ app:
   mode: completion
   name: 简历警察
   use_icon_as_answer_icon: false
-dependencies:
-- current_identifier: null
-  type: marketplace
-  value:
-    marketplace_plugin_unique_identifier: langgenius/gemini:0.2.7@b8a04c0155eb3b9d43ed1199b4387e7f67ef75ad63fcec466eab31a726e2c3a0
 kind: app
 model_config:
   agent_mode:

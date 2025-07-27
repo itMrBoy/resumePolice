@@ -5,11 +5,6 @@ app:
   mode: workflow
   name: 简历警察V3
   use_icon_as_answer_icon: false
-dependencies:
-- current_identifier: null
-  type: package
-  value:
-    plugin_unique_identifier: langgenius/aihubmix:0.0.3@e4487c7fe3df2b5821745deb3bb072af5953ea277dce528d65ce180904460983
 kind: app
 version: 0.3.1
 workflow:
