@@ -59,6 +59,23 @@
 ![拖拽文件](./assets/drop_file.png)
 
 ---
+## 模型的选择及Api key 的配置
+### 模型选择
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/9111bd38-3614-485e-8087-5b3bf065a49b" />
+
+### Api key 配置
+以Gemini为例
+<img width="2560" height="1230" alt="image" src="https://github.com/user-attachments/assets/21b84f11-0797-4fc4-bb26-5319373b6f3b" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/f2f3f9cd-1016-43cc-9342-3b3cbc36182d" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/eeb97cd3-79b5-4589-9f34-870e81e92980" />
+<img width="2560" height="1230" alt="image" src="https://github.com/user-attachments/assets/6ebc1538-e485-4ff2-940f-5a0ebe88c6e4" />
+[Google API Key 获取链接](https://aistudio.google.com/apikey)
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/99d906dd-ab8f-41a2-98e9-8625ddbc4a79" />
+<img width="2560" height="1230" alt="image" src="https://github.com/user-attachments/assets/5eb31ed8-2344-44f9-9a99-b069da3e41c1" />
+配置完成后，显示如下
+<img width="2560" height="1230" alt="image" src="https://github.com/user-attachments/assets/151b088e-9968-4618-99ef-91133d8cd4d3" />
+
+---
 
 ## 🎯 核心理念
 
