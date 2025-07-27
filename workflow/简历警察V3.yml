@@ -167,7 +167,6 @@ workflow:
             temperature: 0.9
           mode: chat
           name: gemini-2.5-pro-preview-05-06
-          provider: langgenius/aihubmix/aihubmix
         prompt_template:
         - id: 3ce9cd26-5f37-4e15-bfdd-ea9a6c133fd6
           role: system
