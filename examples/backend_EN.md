@@ -105,88 +105,8 @@
 This is a restructured resume template for you. Please note that all `[Placeholders]` are key pieces of information you need to fill in based on facts.
 
 ```markdown
-# Jianhao Dai
 
-Phone: 13665394359 | Email: shuaiqijianhao@qq.com | Github: [Your Github Link] | Blog: [Your Blog Link]
-Bachelor's Degree | China University of Geosciences (Wuhan) | Network Engineering (Project 211)
-
----
-
-### Professional Summary
-
-A Backend Engineer with 4 years of experience in AI applications and a contributor to the Kratos open-source community. I specialize in designing and implementing high-performance, high-availability distributed systems. After building a solid engineering foundation at Xiaoice, I strategically joined early-stage startups to gain in-depth experience building AIGC applications from scratch. In these roles, I led the design and launch of multiple core systems within extremely short cycles, accumulating valuable experience in rapid productization and data-driven growth. I have independently built a TB-scale data platform from the ground up, empowering product development and contributing to a 20% revenue increase through data insights.
-
----
-
-### Technical Skills
-
-- **Programming Languages:** Go, Python (Proficient)
-- **Frameworks & Libraries:** Gin, Go-Zero, **Kratos (Committer)**, FastAPI, Pydantic
-- **Middleware:** Kafka, Redis, MySQL, MongoDB, DynamoDB, Etcd
-- **Data Engineering:** Clickhouse, Hive, Airflow, Airbyte, AWS S3
-- **Cloud-Native & Microservices:** Docker, Kubernetes, Helm, gRPC, Dapr, GitLab CI/CD
-- **Service Observability:** Prometheus, Grafana, Jaeger, OpenTelemetry, ELK
-- **AI & Large Models:** LLM Prompt Engineering, Langchain/Dify Applications, RAG, Test-Driven Development with Pytest
-
----
-
-### Work & Project Experience
-
-**Crushon.AI** (A leading global AI Character Chat product, ranked in a16z's Top 20 AI products)
-*Backend Engineer* | Apr 2024 - Jul 2024 (Resigned for personal health reasons)
-
-**Project 1: Led Development of Core AI Group Chat Functionality (Contributed to 20% Product Revenue Growth)**
-- **Context:** To build product differentiation and increase user willingness to pay, it was necessary to develop a group chat feature allowing users to converse with multiple AI characters.
-- **Actions & Results:**
-    - **Led the design and implementation of a message tree storage solution using DynamoDB** to support complex conversation flows like message branching and backtracking, supporting real-time interaction for a million-user-level user base.
-    - **Designed and implemented a local + Redis two-tier caching architecture**, reducing the P99 latency for core context retrieval from `[Original Latency, e.g., 500ms]` to `[Optimized Latency, e.g., 50ms]`, significantly improving the first-response speed of multi-character conversations.
-    - **Built and iteratively improved Prompt templates for group chat scenarios**, increasing the effectiveness of model-generated content by `[Quantifiable Metric, e.g., 30%]` through techniques like role instruction and conversation history compression.
-    - **Provided a data feedback loop for DPO/ORPO model optimization** by designing and launching a user rating and feedback system, accumulating over `[Data Volume, e.g., 100,000]` high-quality preference data points.
-
-**Project 2: Built Company-Wide Data Warehouse & Analytics Platform from Scratch**
-- **Context:** The early-stage product lacked a unified data view, and business decisions were based on intuition, creating an urgent need for data support.
-- **Actions & Results:**
-    - **Independently managed technology selection, architecture design, and implementation**, using a `Clickhouse Cloud + Airflow + Airbyte + Superset` stack to rapidly build an automated data platform within `[Timeframe, e.g., 1 month]`.
-    - **Designed and implemented a layered data architecture (ODS->DWD->DWS)**, processing a daily increase of `[Data Volume, e.g., 100M+]` raw logs and unifying core business metric definitions, laying the foundation for future data analysis.
-    - **Automated the scheduling of over 100 ETL jobs with Airflow**, reducing data latency for key business reports from a manual `[Original Latency, e.g., T+1]` process to `[Optimized Latency, e.g., hourly]`.
-    - **Delivered 15+ core business dashboards** covering key areas like user growth, payment conversion, and content consumption, providing `[Coverage, e.g., 80%+]` of the decision-making data support for product and operations teams.
-
----
-
-**Qihoo 360 - Value-Added Services Department**
-*Senior Backend Engineer* | Nov 2023 - Apr 2024
-
-- **Led the refactoring of the core reconciliation system:**
-    - **Context:** The legacy reconciliation system faced severe performance bottlenecks when processing `[Data Volume]`-level orders and its rigid logic could not support new business lines.
-    - **Actions & Results:**
-        - [**Fill in here with the tradeoffs and thinking behind your technical selections/architectural design to solve the performance issues, e.g., what middleware you introduced, what concurrency model you adopted, etc.**]
-        - [**Quantifiable results: e.g., reduced reconciliation task processing time from 4 hours to 30 minutes, decreased labor costs by XX%**]
-
----
-
-**Qiyuan World** (AI Companion Product Startup)
-*Backend Lead* | Jul 2023 - Oct 2023
-
-- **Independently led the backend system development for the AI social product "Hai Joy" from scratch to launch:**
-    - **Led technology selection and architectural design**, adopting the Go-Zero microservices framework to rapidly build and launch core business systems for instant messaging, a virtual economy, and AI chat within 2 months.
-    - **Designed and implemented a `Memory -> Redis -> MongoDB` three-tier caching architecture** to provide efficient context management for the AI Server, ensuring `[Specific Metric, e.g., P99 dialogue generation latency under 1 second]`.
-    - **Built a complete observability system** (`Prometheus` + `OpenTelemetry`), enabling SLA monitoring and rapid alerting for core services, reducing the mean time to discovery for online issues to `[Time, e.g., under 5 minutes]`.
-
----
-
-**Xiaoice Company** (Former Microsoft AI Team)
-*Backend Development Engineer* | Nov 2020 - Jun 2023
-
-- **Xiaoice Island Project (Core member, 700k+ MAU):**
-    - [**Rewrite your contributions using the STAR method, e.g., to solve weak network issues, I designed the XX protocol, reducing bandwidth usage by XX%; to support high concurrency, I adopted the Reactor model, increasing single-machine QPS to 10,000, etc.**]
-- **API-Plugin Platform (Project lead, over 1 billion cumulative calls):**
-    - [**Rewrite your contributions using the STAR method, e.g., I led XX optimizations, increasing platform resource utilization by XX%; by optimizing the MongoDB connection, I reduced cold start times by XX%, etc.**]
-
----
-
-**Kuaishou - E-commerce Department**
-*Test Development Engineer* | Mar 2020 - Nov 2020
-- Responsible for building the Kuaishou e-commerce automated testing framework, [**Add 1-2 of your most critical, quantifiable achievements here**].
+...
 
 ```
 
