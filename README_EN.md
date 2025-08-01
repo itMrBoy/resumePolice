@@ -4,6 +4,12 @@ A professional resume review tool that helps job seekers optimize their resume c
 
 ---
 
+# Effect Display
+
+[Effect Display of DJJ's Resume Review](./examples/backend_ZH.md)
+
+---
+
 ## ✨ Features
 
 - 🔍 **Professional Resume Review** - Rigorously examine every detail in resumes like code review
@@ -50,7 +56,6 @@ We provide carefully designed prompts that you can use directly:
 ---
 
 ## 📁 Project Structure
-
 ```
 resumePolice/
 ├── prompt/                    # Prompt files

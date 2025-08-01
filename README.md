@@ -1,15 +1,21 @@
 # 简历警察 🕵️‍♂️
 
-[原始帖子](https://linux.do/t/topic/801867)
-
 **已帮助修改超过500份简历**
+
+[English Version (README_EN.md)](./README_EN.md)
+
+---
+
+# 效果展示
+
+[DJJ的简历审查结果](./examples/backend_ZH.md)
 
 ---
 
 ## 特别感谢
 
-> AiHubMix为本项目提供了慷慨的调用额度 
-> 
+> AiHubMix为本项目提供了慷慨的调用额度
+>
 ![AihubMix](https://www.resource.nestsound.cn/one-api-web/logo.png?v=1)
 
 
