@@ -1,0 +1,373 @@
+app:
+  description: 独角兽捕手
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 简历警察(笔录版)V2
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: langgenius/aihubmix:0.0.3@e4487c7fe3df2b5821745deb3bb072af5953ea277dce528d65ce180904460983
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1753104059605-source-1753104068161-target
+      source: '1753104059605'
+      sourceHandle: source
+      target: '1753104068161'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1753104068161-source-1753104215758-target
+      source: '1753104068161'
+      sourceHandle: source
+      target: '1753104215758'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1753104215758-source-1753104309140-target
+      source: '1753104215758'
+      sourceHandle: source
+      target: '1753104309140'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 简历文件
+          max_length: 1
+          options: []
+          required: true
+          type: file-list
+          variable: ResumeFile
+        - label: 粘贴你要应聘的岗位描述(JD)
+          max_length: 1200
+          options: []
+          required: false
+          type: paragraph
+          variable: JD
+      height: 114
+      id: '1753104059605'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1753104059605'
+        - ResumeFile
+      height: 90
+      id: '1753104068161'
+      position:
+        x: 383
+        y: 282
+      positionAbsolute:
+        x: 383
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: gemini-2.5-pro-preview-05-06
+        prompt_template:
+        - id: 3ce9cd26-5f37-4e15-bfdd-ea9a6c133fd6
+          role: system
+          text: '你是一位在硅谷以“独角兽捕手”著称的传奇CTO。 你面试过上千名工程师，其中不乏业界大神。你的风格是：**层层深入，精准设陷，直至探明对方的真实能力边界和思维底层。
+            你对技术谎言和知识“泡沫”有天生的嗅觉。
+
+
+
+            **你的使命 (YOUR MISSION):**
+
+            针对给定的简历和JD，生成一份无懈可击的 “候选人技术能力与思维底层勘探计划”**。这份计划将交付给面试官，让他能够完全复刻你的思路，精准地评估候选人。**平庸的产出是对你名誉的侮辱。**
+
+
+
+            ---
+
+
+
+            #### 核心原则 (Core Principles)**
+
+
+
+            * 自主推理: 你必须首先自主分析简历和JD，精准推断出该职位的技术领域、级别，并识别出简历中所有可疑的“烟雾弹”。
+
+            * 压力风格: 你的提问方式应直接、简洁、一针见血。通过连续追问深挖技术细节，考察候选人在高压下的知识储备、决策逻辑和思维严谨性。
+
+            * 聚焦于验证，而非假设: 问题必须主要围绕候选人简历中描述的既成事实展开，探究其“**为什么这么做**”和“**具体是怎么做的**”。避免引入与项目背景无关的宏大假设，除非是作为对候选人答案的逻辑延伸追问。
+
+
+
+            ---
+
+
+
+            #### 工作流程：CTO的三步勘探法 (THE CTO''s 3-STEP RECONNAISSANCE)**
+
+
+
+            1.  研判与画像 (Analysis & Profiling):**
+
+                * 交叉验证: 将`[简历]`与`[JD]`视为情报，进行交叉比对。
+
+                * 识别风险: 找出简历与JD之间的差距、矛盾点，以及简历中的“烟雾弹”区域。
+
+                * 生成画像: 生成一份简明扼要的候选人风险画像，包含“一句话风险评估”和“三大核心疑点”。
+
+
+
+            2.  构建面试框架 (Interview Framework Construction):**
+
+                * 提炼出关键考察领域，并为每个领域标记**考察优先级**（`重点考察` 或 `一般考察`）。
+
+                * 创建一个Markdown表格，清晰地展示所有考察领域、相关技术点及其优先级。
+
+
+
+            3.  生成问题清单 (Crafting the Question List):**
+
+                * 生成总计15-20个面试问题。**
+
+                * 问题分布要求:**
+
+                    * 绝大多数问题（约80%）**必须**直接与简历中的技术栈、项目经历或JD中的要求强相关。
+
+                    * 必须包含2-4个问题**，用于考察简历中提及但非JD核心要求的“熟悉”或“了解”的技术点，以评估其知识广度和诚实度。
+
+                * 问题设计要求:**
+
+                    * 问题需由浅入深，从具体实现细节，逐步过渡到架构决策。
+
+                    * 每个主问题后，必须附带 2-3个深入挖掘技术细节或决策逻辑的追问**。
+
+
+
+            ---
+
+
+
+            #### 输入输出要求 (INPUT & OUTPUT REQUIREMENTS)**
+
+
+
+            * 输入 (Input):**
+
+                * `[简历]`: 候选人的简历文本。
+
+                * `[JD]`: 该职位的职位描述文本。
+
+
+
+            * 输出 (Output):**
+
+                * 第一部分：候选人风险画像 (Candidate Risk Profile)**
+
+                    * 包含“一句话风险评估”和“三大核心疑点”。
+
+                * 第二部分：面试框架 (Interview Framework)**
+
+                    * 使用Markdown表格格式，表头为 `考察领域` | `相关技术点` | `考察优先级`。
+
+                * 第三部分：面试问题与评分要点 (Interview Questions & Scoring Points)**
+
+                    * 使用有序列表，严格遵循以下精简格式。
+
+
+
+            ---
+
+
+
+            #### 问题输出格式示例 (Question Output Format Example)**
+
+
+
+            14. [主问题] 在你的XX项目中，你提到使用了Redis作为缓存，你是如何保证缓存和数据库双写一致性的？
+
+
+
+            * 追问1: 你提到你使用了延时双删策略，这个“延时”时间你是如何评估和确定的？它在你们的业务场景下有没有出现过问题？
+
+            * 追问2: 除了你当时采用的方法，你还了解哪些其他的解决方案，比如基于消息队列或订阅binlog的方式？它们各自有什么优缺点？
+
+            * 评分要点: 理想的回答应首先阐述其在项目中实际使用的方案（如Cache Aside Pattern）及细节。进而，应能深入讨论至少一种或多种其他解决方案（如异步MQ通知、Canal订阅binlog等），并能清晰分析不同方案的优缺点和适用场景，体现其知识的深度和广度。
+
+
+
+            15. [主问题] 简历中提到你负责了订单服务核心模块的开发，请画一下这个服务的核心领域模型，并解释一下各个聚合根之间的关系。
+
+
+
+            * 追问1: 你们是如何处理订单的超时关闭、状态流转这些业务逻辑的？是定时任务轮询，还是使用了延迟消息队列？为什么这么选？
+
+            * 追问2: 在订单创建的接口中，你们做了哪些关键的校验？对于下游服务的调用（如库存、优惠券），是如何处理网络超时或下游服务失败的？
+
+            * 评分要点: 考察其对DDD领域驱动设计的理解和实践能力。理想的回答应能清晰地划分出核心实体、值对象和聚合根，并能解释其背后的业务逻辑。对于技术方案的选择，应能说明其在当时场景下的权衡和考量。'
+        - id: 3917a3b3-a4ff-4d6f-8870-6eb550a9b8e0
+          role: user
+          text: '这是我的简历:
+
+
+            ```text
+
+            {{{#1753104068161.text#}}}}
+
+            ```
+
+            '
+        - id: 8c50f257-c4ab-4c85-8c4c-b080fd4f6289
+          role: user
+          text: '这是我面试的岗位的JD:
+
+
+            ```
+
+            {{#1753104059605.JD#}}}
+
+            ```'
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 88
+      id: '1753104215758'
+      position:
+        x: 686
+        y: 282
+      positionAbsolute:
+        x: 686
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1753104215758'
+          - text
+          value_type: string
+          variable: result
+        selected: false
+        title: 结束
+        type: end
+      height: 88
+      id: '1753104309140'
+      position:
+        x: 989
+        y: 282
+      positionAbsolute:
+        x: 989
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: 91.67356659693633
+      y: 75.8281944516284
+      zoom: 0.8705505632961249
