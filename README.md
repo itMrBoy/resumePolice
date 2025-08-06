@@ -33,8 +33,8 @@
 | 类型 | 语言 | 描述 / 区别 | 文件链接 |
 | :--- | :--- | :--- | :--- |
 | 简历评估 | 🇨🇳 中文 | **简历警察**：核心提示词，用于全面审查和修改简历，采用“批判-解析-建议”模型。 | [`resume_police_Zh.md`](./prompt/resume_police_Zh.md) |
-| 面试问题生成 | 🇨🇳 中文 | **面试官视角 V1**: 传奇CTO人设，采用四步勘探法和P.O.S.E.R.模型，生成体系化、带陷阱的深度面试问题。 | [`qeustion_v1_Zh.md`](./prompt/qeustion_v1_Zh.md) |
-| 面试问题生成 | 🇨🇳 中文 | **面试官视角 V2**: 传奇CTO人设，采用三步勘探法，风格更直接，产出更精简的面试问题清单。 | [`qeustion_v2_Zh.md`](./prompt/qeustion_v2_Zh.md) |
+| 面试问题生成 | 🇨🇳 中文 | **面试官视角 V1**: 传奇CTO人设，采用四步勘探法和P.O.S.E.R.模型，生成体系化、带陷阱的深度面试问题。 | [`question_v1_Zh.md`](./prompt/question_v1_Zh.md) |
+| 面试问题生成 | 🇨🇳 中文 | **面试官视角 V2**: 传奇CTO人设，采用三步勘探法，风格更直接，产出更精简的面试问题清单。 | [`question_v2_Zh.md`](./prompt/question_v2_Zh.md) |
 
 ---
 
