@@ -104,7 +104,6 @@
 - 💡 **建议** - 提供具体方案
 
 ## 联系我们
-![91e7d90cf29a6a591902b17a51d80686](https://github.com/user-attachments/assets/6a29338b-651b-49ca-99a9-c470e155aa03)
-
+<img width="1376" height="1933" alt="resumePolice" src="https://github.com/user-attachments/assets/9164e8d0-d61a-4a36-aee5-654603e791ac" />
 
 
