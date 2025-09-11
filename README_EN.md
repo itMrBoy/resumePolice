@@ -45,6 +45,7 @@ To facilitate use on the Dify platform, we provide the following workflow files.
 | Resume Police Chat | **(Recommended)** Conversational workflow, supports multi-turn dialogue for follow-up questions and revisions. | [`简历警察Chat.yml`](./workflow/简历警察Chat.yml) |
 | Resume Police (Transcript Ver) V1 | Corresponds to **Interviewer's Perspective V1** prompt for generating in-depth interview questions. | [`简历警察(笔录版)V1.yml`](./workflow/简历警察(笔录版)V1.yml) |
 | Resume Police (Transcript Ver) V2 | Corresponds to **Interviewer's Perspective V2** prompt for generating a concise list of interview questions. | [`简历警察(笔录版)V2.yml`](./workflow/简历警察(笔录版)V2.yml) |
+|大厂产研简历优化教练-C-Level|The original prompt words are broken down into 4 steps, each of which is completed independently by a model to output the review results.|[`大厂产研简历优化教练-C-Level.yml`](./workflow/大厂产研简历优化教练-C-Level.yml)|
 
 ### Usage
 
