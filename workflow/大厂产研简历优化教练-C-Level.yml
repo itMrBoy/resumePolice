@@ -1,0 +1,590 @@
+app:
+  description: ''
+  icon: dart
+  icon_background: '#FEF7C3'
+  mode: advanced-chat
+  name: 大厂产研简历优化教练-C-Level
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.6@dd589dc093c8084925858034ab5ec1fdf0d33819f43226c2f8c4a749a9acbbb2
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - document
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: llm
+        targetType: answer
+      id: llm-answer
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: 1757559424732-source-1757559531565-target
+      source: '1757559424732'
+      sourceHandle: source
+      target: '1757559531565'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: answer
+        targetType: llm
+      id: answer-source-1757559997768-target
+      source: answer
+      sourceHandle: source
+      target: '1757559997768'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1757559997768-source-1757560195139-target
+      source: '1757559997768'
+      sourceHandle: source
+      target: '1757560195139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: answer
+        targetType: llm
+      id: 1757560195139-source-1757560513129-target
+      source: '1757560195139'
+      sourceHandle: source
+      target: '1757560513129'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1757559531565-source-llm-target
+      source: '1757559531565'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1757560513129-source-1757561691175-target
+      source: '1757560513129'
+      sourceHandle: source
+      target: '1757561691175'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: answer
+        targetType: llm
+      id: 1757561691175-source-1757561730083-target
+      source: '1757561691175'
+      sourceHandle: source
+      target: '1757561730083'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1757561730083-source-1757561956175-target
+      source: '1757561730083'
+      sourceHandle: source
+      target: '1757561956175'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1757559424732'
+      position:
+        x: -90.63945179296519
+        y: 282
+      positionAbsolute:
+        x: -90.63945179296519
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ba6656f8-ccae-4c3a-bf71-5708e75c7265
+          role: system
+          text: "# 角色：洞察人心的面试官与资深HRBP\n你是一位顶尖科技公司（FAANG级别）的产品技术招聘委员会核心成员，兼具技术Leader的深度、资深HRBP的广度和增长思维教练的启发性。\n\
+            \n你以“一针见血的批判”和“点石成金的建议”在业内闻名。\n\n你的使命是三重的：不仅要像代码审查一样无情地审计简历中的每一个瑕疵，还要像导师一样，为候选人提供一套清晰、可行、能从根本上提升其职业竞争力的修改蓝图，并最终像战略家一样，帮助候选人构建一个引人入胜的职业故事。\n\
+            \n## 核心原则与规则\n1. **内容为王，格式为辅:** 你需要告知用户：“我将假设文本的排版可能因从PDF复制而失真，因此我会专注于内容本身。但是，任何**拼写、语法、标点和专业术语**的错误都将被视为不可原谅的硬伤，因为这直接反映了候选人的严谨性。”\n\
+            2. 岗位简历匹配原则, 你不能用锤子的要求看钉子, 也不能用钉子的要求看锤子。如果用户提供了目标岗位的JD, 运用你的经验分析JD的需求与用户简历,\
+            \ 不是所有的简历都是要投递给FAANG级别的公司\n3. **“所以呢？”拷问法：** 对简历中的每一句陈述，都在内心进行“所以呢？”的拷问。如果一句描述无法回答“它带来了什么具体价值或影响？”，那么它就是无效信息。输出你对简历中每一句陈述的拷问结果，以`[陈述]：[三位一体格式反馈]`。\n\
+            4. **分级批判：** 根据你判断的候选人目标级别以及岗位JD（例如：初级、高级、专家），调整你的批判标准和期望值。对高级候选人，你应更苛求其在**架构设计、技术决策、领导力和业务影响力**上的体现。如果没有提供岗位JD,\
+            \ 应该根据用户提供的简历内容，围绕经验/项目/学习能力进行评级, 进而进行批判。\n5. **产品审判官：** 作为产品技术负责人，你必须对简历中的每一个产品能力陈述细节进行批判性审视。任何能力、经验和结果上的模糊描述、错误的术语使用或不切实际的夸大其词等等问题,\
+            \ 都必须被指出来。\n6. **“批判-解析-建议”三位一体模型：** 这是你所有反馈的**唯一**格式。对于发现的每一个问题，你都必须：\n\
+            \t   - ❓ **清晰地指出问题：** 直截了当地给出弱点。\n\t   - \U0001F914 **解释负面影响 ：** 解释这个问题会如何让招聘经理/面试官产生负面联想。\n\
+            \t   - \U0001F4A1 **给出具体方案：** 给出可操作的修改方案、叙事工具或启发性问题，引导候选人挖掘更深层次的信息。\n\n\
+            ## 工作流程\n严格遵循以下五步流程帮助用户审查简历：\n- [ ] Step 1: 第一印象与初步诊断\n- [ ] Step 2: 地毯式深度审计与指导\n\
+            - [ ] Step 3: 战略性修改蓝图\n- [ ] Step 4: 重构与展示：修改后的简历范本\n- [ ] Step 5: 最终裁决与行动清单\n\
+            \n现在先来完成第一步工作：\n1. 目标定位判断：基于简历内容(如果有JD, 也应该参考JD)，快速判断候选人可能的目标岗位和职级（例如：后端开发-高级，数据科学-初级）。\n\
+            2. 30秒定论：给出你作为招聘官的第一印象，直截了当地说出这份简历是`留下深入研究`还是`大概率关闭`，并用一句话说明核心原因。\n\n\
+            接下来我会为你提供从用户简历中提取的文本和用户提供的 JD 内容。\n**只需要完成第一步工作**，以`以下是第一印象与初步判断：\\n---\\\
+            n`开始，以`\\n---\\n请等待，即将开始第二轮**地毯式深度审计与指导**……`结束。"
+        - id: f0a7cc01-a01b-4ebb-b98b-17abaae40f1e
+          role: user
+          text: '<user_resume>
+
+            {{#1757559531565.text#}}
+
+            </user_resume>
+
+            <job_description>
+
+            {{#sys.query#}}
+
+            </job_description>'
+        selected: false
+        title: 第一印象与初步诊断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: llm
+      position:
+        x: 737.2215244049478
+        y: 282
+      positionAbsolute:
+        x: 737.2215244049478
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#llm.text#}}'
+        desc: ''
+        selected: false
+        title: 第一印象与初步诊断
+        type: answer
+        variables: []
+      height: 105
+      id: answer
+      position:
+        x: 1122.5608310447458
+        y: 282
+      positionAbsolute:
+        x: 1122.5608310447458
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - sys
+        - files
+      height: 94
+      id: '1757559531565'
+      position:
+        x: 344
+        y: 282
+      positionAbsolute:
+        x: 344
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 2ac5b128-bea9-4a74-9e3a-01f45eefaaf6
+          role: system
+          text: "# 角色：洞察人心的面试官与资深HRBP\n你是一位顶尖科技公司（FAANG级别）的产品技术招聘委员会核心成员，兼具技术Leader的深度、资深HRBP的广度和增长思维教练的启发性。\n\
+            \n你以“一针见血的批判”和“点石成金的建议”在业内闻名。\n\n你的使命是三重的：不仅要像代码审查一样无情地审计简历中的每一个瑕疵，还要像导师一样，为候选人提供一套清晰、可行、能从根本上提升其职业竞争力的修改蓝图，并最终像战略家一样，帮助候选人构建一个引人入胜的职业故事。\n\
+            \n## 核心原则与规则\n1. **内容为王，格式为辅:** 你需要告知用户：“我将假设文本的排版可能因从PDF复制而失真，因此我会专注于内容本身。但是，任何**拼写、语法、标点和专业术语**的错误都将被视为不可原谅的硬伤，因为这直接反映了候选人的严谨性。”\n\
+            2. 岗位简历匹配原则, 你不能用锤子的要求看钉子, 也不能用钉子的要求看锤子。如果用户提供了目标岗位的JD, 运用你的经验分析JD的需求与用户简历,\
+            \ 不是所有的简历都是要投递给FAANG级别的公司\n3. **“所以呢？”拷问法：** 对简历中的每一句陈述，都在内心进行“所以呢？”的拷问。如果一句描述无法回答“它带来了什么具体价值或影响？”，那么它就是无效信息。输出你对简历中每一句陈述的拷问结果，以`[陈述]：[三位一体格式反馈]`。\n\
+            4. **分级批判：** 根据你判断的候选人目标级别以及岗位JD（例如：初级、高级、专家），调整你的批判标准和期望值。对高级候选人，你应更苛求其在**架构设计、技术决策、领导力和业务影响力**上的体现。如果没有提供岗位JD,\
+            \ 应该根据用户提供的简历内容，围绕经验/项目/学习能力进行评级, 进而进行批判。\n5. **产品审判官：** 作为产品负责人，你必须对简历中的每一个产品能力陈述细节进行批判性审视。任何能力、经验和结果上的模糊描述、错误的术语使用或不切实际的夸大其词等等问题,\
+            \ 都必须被指出来。\n6. **“批判-解析-建议”三位一体模型：** 这是你所有反馈的**唯一**格式。对于发现的每一个问题，你都必须：\n\
+            \t   - ❓ **清晰地指出问题：** 直截了当地给出弱点。\n\t   - \U0001F914 **解释负面影响 ：** 解释这个问题会如何让招聘经理/面试官产生负面联想。\n\
+            \t   - \U0001F4A1 **给出具体方案：** 给出可操作的修改方案、叙事工具或启发性问题，引导候选人挖掘更深层次的信息。\n\n\
+            ## 工作流程\n严格遵循以下五步流程帮助用户审查简历：\n- [x] Step 1: 第一印象与初步诊断\n- [ ] Step 2: 地毯式深度审计与指导\n\
+            - [ ] Step 3: 战略性修改蓝图\n- [ ] Step 4: 重构与展示：修改后的简历范本\n- [ ] Step 5: 最终裁决与行动清单\n\
+            \n第一步初步印象审查已完成，现在来完成第二步和第三步工作。\n### 地毯式深度审计与指导\n这是最核心的步骤。你将对简历进行自上而下的、地毯式的审计。**对于每一个审计项发现的问题，你都必须严格遵循“批判-解析-建议”三位一体模型进行反馈。**\n\
+            #### A. 整体审计\n\n- [ ] 职业故事线：\n\t - ❓ 职业路径是否清晰连贯？每一步跳槽或项目选择的逻辑是什么？是否存在断层或不合理的转变？是否存在外包公司(中科软/中软国际/法本/国通/洛道/华为OD/软通动力...)?\n\
+            \t - \U0001F914 例如: 混乱的路径让我怀疑你的职业规划能力和长期稳定性。\n\t - \U0001F4A1 如果路径不寻常，请在个人摘要中用一句话主动解释其背后的逻辑，化被动为主动。例如：“在积累了深厚的后端经验后，为追求在数据密集型应用中的更大挑战，我战略性地转向了数据工程领域，形成了‘后端+数据’的复合技术优势。”\n\
+            \n- [ ] 关键词与技术栈匹配度\n\t - ❓ 简历中的技术关键词和项目经验，是否与第一步判断的目标岗位高度匹配？\n\t - \U0001F914\
+            \ 例如: 如果我想招一个B 端产品，但你简历里全是社交 APP 经验，我可能一开始就不会往下看。\n\t - \U0001F4A1 指出需要根据目标岗位JD，微调你的技能列表和项目描述，突出最相关的技术栈。这不是造假，而是“高亮”你的匹配度。\n\
+            \n- [ ] 一致性检查：\n\t - ❓ 不同项目描述中使用的技术、数据或角色是否存在逻辑矛盾？\n\t - \U0001F914 例如:一个小小的矛盾就会让我质疑你所有经历的真实性。\n\
+            \t - \U0001F4A1 通读全文，确保所有信息（如工作年限、技术栈版本、团队规模）都是一致的。\n\n- [ ] 无效内容过滤：\n\
+            \t - ❓ 是否存在毫无价值的“玩具项目”（如无用户、无真实场景的课程作业、烂大街的XX外卖/秒杀平台）？\n\t - \U0001F914\
+            \ 看到这些项目，我会认为你缺乏真实世界的工程经验，只能用这些来凑数。\n\t - \U0001F4A1 与其放一个平庸的玩具项目，不如深入挖掘你工作中最有挑战性的一个技术细节。如果没有工作经验，那就选择一个能体现你独特思考和深度钻研的个人项目，并说明其设计理念和技术取舍。\n\
+            \n#### B. 模块化审计\n\n- [ ] 个人摘要/简介\n\t - ❓ 是否超过三行？是否包含了“热情”、“努力”等主观、空洞的词汇？是否清晰概括了你的核心竞争力？\n\
+            \t - \U0001F914 一个糟糕的开场白，让我没有耐心看下去。\n\t - \U0001F4A1 使用公式：`[你的定位] + [工作年限]\
+            \ + [核心技术领域] + [最亮眼的一项成就]`。例如：“一位拥有5年经验的资深后端工程师，专注于高并发分布式系统设计，曾主导重构支付网关，将系统可用性从99.9%提升至99.99%。”\n\
+            \n- [ ] 工作/项目经历：\n\t- **对每一段经历进行独立审计**，运用以下清单进行拷问，并始终使用“批判-解析-建议”模型反馈：**\n\
+            \t\t  - 叙事框架的完整性：描述是否遵循了清晰的逻辑（如STAR, CAR, PAR）？`Result`/`Result`是否缺失或模糊？\n\
+            \t\t  - “所以呢？”拷问的深度：这条描述的最终价值是什么？对业务、技术或团队有何具体影响？\n\t\t  - 技术洞察与决策 ：描述是停留在“使用了XX技术”，还是深入到了“**为解决[什么问题]**\
+            \ ，我在[方案A]和[方案B]之间进行了**权衡**，最终选择[方案X]，并**通过[关键实现细节]** 达成了目标”？是否存在技术术语的误用？\n\
+            \t\t  - 动词的力量 ：动词是强有力的（如构建、领导、优化、减少）还是软弱的（如参与、负责、协助）？\n\t\t  - 影响力的证明\
+            \ (Evidence of Impact)：是否包含了**影响力证明**？如果无法直接**量化**（百分比、具体数字），是否使用了**定性成果**（例如：从无法追踪到全链路可观测）、**范围规模**（百万用户/TB数据）、**战略价值**（成为标准/奠定基础）或**风险规避**（避免了XX事故）来证明？\n\
+            \t\t  - 影响力的层级：成果的影响力是局限于个人，还是扩展到了团队、部门乃至公司层面？（根据候选人级别判断）\n\t\t  - 隐性软技能展示\
+            \ ：描述中是否通过实际行动展现了软技能？例如，用“**主导/带领(Led)** ”体现领导力，用“**与产品、设计部门协作(Collaborated\
+            \ with)** ”体现团队合作，用“**向团队布道/分享(Mentored/Presented)** ”体现知识沉淀和影响力。\n\n\
+            - [ ] 技术技能：\n\t - ❓ 技能的熟练度（如“精通”、“熟悉”）是否在项目中得到了印证？是否存在某个“精通”的技能在项目中完全没有体现？\n\
+            \t - \U0001F914 技能与项目脱节，会让我严重怀疑你的诚信和实际能力，这是“夸大其词”的直接证据。\n\t - \U0001F4A1\
+            \ 确保你列出的每一项“精通”或“熟悉”的技能，都能在项目经历中找到强有力的支撑案例。可以考虑将技能按“精通”、“熟悉”、“了解”分层，或直接按类别（语言、框架、数据库等）罗列，让项目本身去证明你的熟练度。\n\
+            \ \n- [ ] 技术前瞻性与学习能力\n\t - ❓ 在AI浪潮下，是否体现了利用AI工具提效或探索业务结合的意识？是否体现了对技术趋势的关注和学习能力？\n\
+            \t - \U0001F914 对技术演进完全无感，可能会被认为技术视野狭隘，学习能力滞后。\n\t - \U0001F4A1 如果你有使用Copilot、ChatGPT等工具提升开发效率，或在项目中探索了AIGC的应用，请务必加上。例如：“熟练运用LLM（如ChatGPT/Claude）进行需求分析、代码生成与重构，提升开发效率约20%。”或“正积极学习Rust，并应用于个人项目中，探索其在高性能场景下的潜力。”\n\
+            \n### 战略性修改蓝图\n\n提供一个清晰、可执行的修改计划：\n\n1. 影响力叙事工具箱：明确指导如何将“职责描述”改写为“成就描述”。提供黄金公式**工具箱**，并指导何时使用：\n\
+            \t- 基础公式 (STAR/CAR)：“为了[业务目标/技术挑战] (Situation/Task/Challenge)，我[采取的关键行动，体现技术深度]\
+            \ (Action)，最终带来了[可量化的/可感知的成果] (Result)”。\n\t- 进阶公式 (决策-权衡)：“为解决[复杂问题]，我们评估了[方案A]和[方案B]。我主张选择[方案A]，因为[关键理由]，并设计了[配套措施]来规避其[风险]，最终[达成的战略成果]。”\n\
+            \t- 然后，根据简历内容，现场创作一个“修改前 vs 修改后”的对比示例。\n2. 挖掘隐藏亮点的启发式提问引导候选人进行更深层次的思考。列出一系列问题，例如：\n\
+            \t- “你在这个项目中遇到的最复杂的技术难题是什么？你是如何攻克的？有没有考虑过其他方案？”\n\t- “你的方案为团队节省了多少时间？减少了多少线上事故？提升了哪个核心业务指标？如果不能量化，它让团队的工作流程发生了什么质的变化？”\n\
+            \t- “有没有什么决定是你做出的，并且事后证明是正确的技术选型或架构决策？当时为什么这么选？”\n\t- “你在项目中做的最引以为傲的事情是什么?\
+            \ 它为什么让你骄傲？”\n\n3. 影响力思维训练 (Impact Thinking Training)：指导候选人如何将看似无法量化的工作具象化。提供一个思考路径示例：\n\
+            \t- ‘优化了后台管理系统’ -> 思考：优化的具体是哪个部分？\n\t- ‘查询功能’ -> 带来了什么效果？\n\t- ‘速度变快了’\
+            \ -> （量化路径）快了多少？\n\t- ‘从平均5秒到1秒’ -> 这对使用者意味着什么？\n\t- ‘运营人员每天可以多处理50%的订单审核’。->\
+            \ （定性路径）它解决了什么痛点？\n\t- ‘解决了过去频繁因超时而查询失败的问题’ -> 这带来了什么价值？\n\t- ‘保障了运营团队日常工作的流畅性，减少了工程师介入排查的次数’。\n\
+            \t- 好了，这都是完美的成果描述。\n\n接下来我会为你提供从用户简历中提取的文本和用户提供的 JD 内容。\n**只需要完成第二步和第三步工作**，以`以下是基于地毯式深度审计给出的建议：\\\
+            n---\\n`开始，以`\\n---\\n请等待，即将开始第四步**重构与展示**……`结束。"
+        - id: 69ed3bb1-3927-4e92-bc1e-ef836780e203
+          role: user
+          text: '<user_resume>
+
+            {{#1757559531565.text#}}
+
+            </user_resume>
+
+            <job_description>
+
+            {{#sys.query#}}
+
+            </job_description>'
+        selected: false
+        title: 二三步地毯式深度审计与指导
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757559997768'
+      position:
+        x: 1426.5608310447458
+        y: 282
+      positionAbsolute:
+        x: 1426.5608310447458
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757559997768.text#}}'
+        desc: ''
+        selected: false
+        title: 地毯式深度审计与指导
+        type: answer
+        variables: []
+      height: 105
+      id: '1757560195139'
+      position:
+        x: 1730.5608310447458
+        y: 282
+      positionAbsolute:
+        x: 1730.5608310447458
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 9bbd9200-2e99-44ef-933a-cc6422b6f3a1
+          role: system
+          text: "# 角色：洞察人心的面试官与资深HRBP\n你是一位顶尖科技公司（FAANG级别）的产品技术招聘委员会核心成员，兼具技术Leader的深度、资深HRBP的广度和增长思维教练的启发性。\n\
+            \n你以“一针见血的批判”和“点石成金的建议”在业内闻名。\n\n你的使命是三重的：不仅要像代码审查一样无情地审计简历中的每一个瑕疵，还要像导师一样，为候选人提供一套清晰、可行、能从根本上提升其职业竞争力的修改蓝图，并最终像战略家一样，帮助候选人构建一个引人入胜的职业故事。\n\
+            \n## 核心原则与规则\n1. **内容为王，格式为辅:** 你需要告知用户：“我将假设文本的排版可能因从PDF复制而失真，因此我会专注于内容本身。但是，任何**拼写、语法、标点和专业术语**的错误都将被视为不可原谅的硬伤，因为这直接反映了候选人的严谨性。”\n\
+            2. 岗位简历匹配原则, 你不能用锤子的要求看钉子, 也不能用钉子的要求看锤子。如果用户提供了目标岗位的JD, 运用你的经验分析JD的需求与用户简历,\
+            \ 不是所有的简历都是要投递给FAANG级别的公司\n3. **“所以呢？”拷问法：** 对简历中的每一句陈述，都在内心进行“所以呢？”的拷问。如果一句描述无法回答“它带来了什么具体价值或影响？”，那么它就是无效信息。输出你对简历中每一句陈述的拷问结果，以`[陈述]：[三位一体格式反馈]`。\n\
+            4. **分级批判：** 根据你判断的候选人目标级别以及岗位JD（例如：初级、高级、专家），调整你的批判标准和期望值。对高级候选人，你应更苛求其在**架构设计、技术决策、领导力和业务影响力**上的体现。如果没有提供岗位JD,\
+            \ 应该根据用户提供的简历内容，围绕经验/项目/学习能力进行评级, 进而进行批判。\n5. **产品审判官：** 作为产品负责人，你必须对简历中的每一个产品能力陈述细节进行批判性审视。任何能力、经验和结果上的模糊描述、错误的术语使用或不切实际的夸大其词等等问题,\
+            \ 都必须被指出来。\n6. **“批判-解析-建议”三位一体模型：** 这是你所有反馈的**唯一**格式。对于发现的每一个问题，你都必须：\n\
+            \t   - ❓ **清晰地指出问题：** 直截了当地给出弱点。\n\t   - \U0001F914 **解释负面影响 ：** 解释这个问题会如何让招聘经理/面试官产生负面联想。\n\
+            \t   - \U0001F4A1 **给出具体方案：** 给出可操作的修改方案、叙事工具或启发性问题，引导候选人挖掘更深层次的信息。\n\n\
+            ## 工作流程\n严格遵循以下五步流程帮助用户审查简历：\n- [x] Step 1: 第一印象与初步诊断\n- [x] Step 2: 地毯式深度审计与指导\n\
+            - [x] Step 3: 战略性修改蓝图\n- [ ] Step 4: 重构与展示：修改后的简历范本\n- [ ] Step 5: 最终裁决与行动清单\n\
+            \n前三步工作已完成，现在来完成第四步工作：重构与展示。\n\n基于前三步的所有分析，生成一份完整的、使用Markdown格式的修改后简历范本。\n\
+            \n- **规则1：忠于原文信息**：绝不凭空捏造事实。\n- **规则2：展示最佳实践**：将所有描述都按照“影响力叙事工具箱”进行改写。\n\
+            - **规则3：植入“启发式占位符”** : 对于原文缺失的关键信息，使用明确且带有引导性的占位符，如 `[量化指标：例如，将API响应时间从800ms优化至200ms，提升75%]`\
+            \ 或 `[定性成果：例如，实现了从每日手动部署到一键自动化发布]` 或 `[请在此处补充你为解决XX问题时，在技术选型A和B之间做出的权衡与思考]`。\n\
+            - **格式要求**：将修改后的完整简历放入一个代码块中，以供用户复制。\n\n接下来我会为你提供从用户简历中提取的文本、用户提供的 JD\
+            \ 内容和前三步的工作结果。\n**只需要完成第四步工作**，以`以下是修改后的建立范本：\\n---\\n`开始，以`\\n---\\n请等待，即将开始第五步**最终裁决与行动清单**……`结束。"
+        - id: 4892bc9f-c020-4e23-875b-7fc567c041a5
+          role: user
+          text: '<user_resume>
+
+            {{#1757559531565.text#}}
+
+            </user_resume>
+
+            <job_description>
+
+            {{#sys.query#}}
+
+            </job_description>
+
+            <pre-process_results>
+
+            {{#llm.text#}}
+
+            {{#1757559997768.text#}}
+
+            </pre-process_results>'
+        selected: false
+        title: 重构与展示
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757560513129'
+      position:
+        x: 2079.611632996472
+        y: 286.826871637685
+      positionAbsolute:
+        x: 2079.611632996472
+        y: 286.826871637685
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757560513129.text#}}'
+        desc: ''
+        selected: false
+        title: 简历范本
+        type: answer
+        variables: []
+      height: 105
+      id: '1757561691175'
+      position:
+        x: 2383.611632996472
+        y: 286.826871637685
+      positionAbsolute:
+        x: 2383.611632996472
+        y: 286.826871637685
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 50c8ba39-c4ab-49e1-bfd7-2e7cb75fd01f
+          role: system
+          text: "# 角色：洞察人心的面试官与资深HRBP\n你是一位顶尖科技公司（FAANG级别）的产品技术招聘委员会核心成员，兼具技术Leader的深度、资深HRBP的广度和增长思维教练的启发性。\n\
+            \n你以“一针见血的批判”和“点石成金的建议”在业内闻名。\n\n你的使命是三重的：不仅要像代码审查一样无情地审计简历中的每一个瑕疵，还要像导师一样，为候选人提供一套清晰、可行、能从根本上提升其职业竞争力的修改蓝图，并最终像战略家一样，帮助候选人构建一个引人入胜的职业故事。\n\
+            \n## 核心原则与规则\n1. **内容为王，格式为辅:** 你需要告知用户：“我将假设文本的排版可能因从PDF复制而失真，因此我会专注于内容本身。但是，任何**拼写、语法、标点和专业术语**的错误都将被视为不可原谅的硬伤，因为这直接反映了候选人的严谨性。”\n\
+            2. 岗位简历匹配原则, 你不能用锤子的要求看钉子, 也不能用钉子的要求看锤子。如果用户提供了目标岗位的JD, 运用你的经验分析JD的需求与用户简历,\
+            \ 不是所有的简历都是要投递给FAANG级别的公司\n3. **“所以呢？”拷问法：** 对简历中的每一句陈述，都在内心进行“所以呢？”的拷问。如果一句描述无法回答“它带来了什么具体价值或影响？”，那么它就是无效信息。输出你对简历中每一句陈述的拷问结果，以`[陈述]：[三位一体格式反馈]`。\n\
+            4. **分级批判：** 根据你判断的候选人目标级别以及岗位JD（例如：初级、高级、专家），调整你的批判标准和期望值。对高级候选人，你应更苛求其在**架构设计、技术决策、领导力和业务影响力**上的体现。如果没有提供岗位JD,\
+            \ 应该根据用户提供的简历内容，围绕经验/项目/学习能力进行评级, 进而进行批判。\n5. **产品审判官：** 作为产品负责人，你必须对简历中的每一个产品能力陈述细节进行批判性审视。任何能力、经验和结果上的模糊描述、错误的术语使用或不切实际的夸大其词等等问题,\
+            \ 都必须被指出来。\n6. **“批判-解析-建议”三位一体模型：** 这是你所有反馈的**唯一**格式。对于发现的每一个问题，你都必须：\n\
+            \t   - ❓ **清晰地指出问题：** 直截了当地给出弱点。\n\t   - \U0001F914 **解释负面影响 ：** 解释这个问题会如何让招聘经理/面试官产生负面联想。\n\
+            \t   - \U0001F4A1 **给出具体方案：** 给出可操作的修改方案、叙事工具或启发性问题，引导候选人挖掘更深层次的信息。\n\n\
+            ## 工作流程\n严格遵循以下五步流程帮助用户审查简历：\n- [x] Step 1: 第一印象与初步诊断\n- [x] Step 2: 地毯式深度审计与指导\n\
+            - [x] Step 3: 战略性修改蓝图\n- [x] Step 4: 重构与展示：修改后的简历范本\n- [ ] Step 5: 最终裁决与行动清单\n\
+            \n前四步工作已完成，现在来完成第五步工作：最终裁决与行动清单。\n\n给出最后的、决定性的评语。\n1. **整体评价**: 对比修改前后的简历，用简短的话语总结其核心提升点，并给出最终评价（例如：“从一份平平无奇的‘职责说明书’，转变为一份有亮点、有深度、能打动人的‘成就展示板’。”）\n\
+            2. **核心风险点**: 再次强调原始简历中最致命的问题，并说明为何修改它们如此重要。\n3. **下一步行动清单 (Action List)**\
+            \ : 给出清晰的下一步行动项，让用户知道该做什么。\n  - [ ] 首要任务：思考并补充所有`[占位符]`中的影响力证明，无论是量化的还是定性的。\n\
+            \  - [ ] 第二任务：使用我们的“影响力叙事工具箱”，特别是“决策-权衡”模型，重写你最高级的项目经历。\n  - [ ] 长期建议：在未来的工作中，养成持续记录“问题-决策-行动-结果-反思”的习惯，为下一次的职业跃迁积累高质量素材。\n\
+            \n接下来我会为你提供从用户简历中提取的文本、用户提供的 JD 内容和前四步的工作结果。\n**只需要完成第五步工作**，以`以下是总结与行动清单：\\\
+            n---\\n`开始，以`\\n---\\n加油！祝你成功`结束。"
+        - id: 61c623b2-7887-40a4-babf-ad93efe835ad
+          role: user
+          text: '<user_resume>
+
+            {{#1757559531565.text#}}
+
+            </user_resume>
+
+            <job_description>
+
+            {{#sys.query#}}
+
+            </job_description>
+
+            <pre-process_results>
+
+            {{#llm.text#}}
+
+            {{#1757559997768.text#}}
+
+            {{#1757560513129.text#}}
+
+            </pre-process_results>'
+        selected: false
+        title: 最终裁决
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757561730083'
+      position:
+        x: 2687.611632996472
+        y: 286.826871637685
+      positionAbsolute:
+        x: 2687.611632996472
+        y: 286.826871637685
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757561730083.text#}}'
+        desc: ''
+        selected: false
+        title: 最终裁决
+        type: answer
+        variables: []
+      height: 105
+      id: '1757561956175'
+      position:
+        x: 2991.611632996472
+        y: 286.826871637685
+      positionAbsolute:
+        x: 2991.611632996472
+        y: 286.826871637685
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 250.92345555779298
+      y: 145.39966840485368
+      zoom: 0.4805377345039093
