@@ -105,7 +105,8 @@
 - 💡 **建议** - 提供具体方案
 
 ## 联系我们
-<img width="1376" height="1933" alt="03e4c20ca40a485a8f315d1e344f0be" src="https://github.com/user-attachments/assets/05afa584-ace4-49ea-94b9-91d682fa2f82" />
+<img width="1376" height="1933" alt="3fcbf12f1a6451d6b0e98fdd6d7656d" src="https://github.com/user-attachments/assets/96450026-d7de-4960-bf1b-712825c5d1f2" />
+
 
 
 
